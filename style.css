@@ -10,18 +10,21 @@ div #clock{
 #hour {
     z-index: 1;
     position: absolute;
-    left: 0%;
+    left: 7px;
+    top: -10px;
 }
 
 #minute {
     z-index: 2;
     position: absolute;
-    left: 0%;
+    left: 7px;
+    top: -10px;
 }
 
 #second {
     z-index: 3;
     position: absolute;
-    left: 0%;
+    left: 7px;
+    top: 3px;
 }
 

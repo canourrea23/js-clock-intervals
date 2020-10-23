@@ -1,16 +1,20 @@
-let minuteCounter = 0;
-let secondsCounter = 59;
+let now = new Date();
+let minuteCounter = now.getMinutes();
+let secondsCounter = now.getSeconds();
 
 const secondHand = document.getElementById('second');
 const minuteHand = document.getElementById('minute');
+const hourHand = document.getElementById('hour');
+
 
 var x = setInterval(function() {
     counter();
     secondRotation(secondsCounter);
-    console.log(minuteCounter);
-    minuteRotation(minuteCounter);
+    hourRotation(minuteCounter);
+    // console.log(`Seconds: ${secondsCounter}`);
+    // console.log(`Minute: ${minuteCounter}`);
+    
 }, 1000);
-
 
 function counter() {
     secondsCounter++;
@@ -20,11 +24,17 @@ function counter() {
 }
 
 function secondRotation(seconds) {
-    let degRotation = seconds * 6;
-    secondHand.style.transform = `rotate(${degRotation}deg)`;
+    let degRotationSec = seconds * 6;
+    let degRotationMin = seconds * 0.05;
+    secondHand.style.transform = `rotate(${degRotationSec}deg)`;
+    minuteHand.style.transform = `rotate(${degRotationMin}deg)`;
 }
 
-function minuteRotation(minute) {
-    let degRotation = minute * 6;
-    minuteHand.style.transform = `rotate(${degRotation}deg)`;
+function hourRotation(mins) {
+    let degRotationHour = mins * .5;
+    hourHand.style.transform =  `rotate(${degRotationHour}deg)`;
 }
+
+
+console.log(now.getMinutes());
+
