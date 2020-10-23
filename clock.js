@@ -3,19 +3,16 @@ const secondHand = document.getElementById('second');
 
 var x = setInterval(function() {
     seconds();
-    console.log(secondsCounter);
-    return secondsCounter;
+    secondRotation(secondsCounter);
 }, 1000);
-
- 
 
 
 function seconds() {
     secondsCounter++;
 }
 
-
 function secondRotation(seconds) {
     let degRotation = seconds * 6;
-    return degRotation;
+    console.log(degRotation);
+    secondHand.style.transform = `rotate(${degRotation}deg)`;
 }
